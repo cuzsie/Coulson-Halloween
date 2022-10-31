@@ -57,7 +57,6 @@ public class PrincipalScript : MonoBehaviour
 					this.Wander(); // Start wandering again
 				}
 			}
-			direction = this.bully.position - base.transform.position; // If the bully is guilty, target the bully
 		}
 		else
 		{
@@ -144,25 +143,13 @@ public class PrincipalScript : MonoBehaviour
 		{
 			this.inOffice = false;
 		}
-		if (other.name == "Its a Bully")
-		{
-			this.bullySeen = false;
-		}
 	}
 
 	// Token: 0x04000164 RID: 356
 	public bool seesRuleBreak;
 
-	// Token: 0x04000165 RID: 357
 	public Transform player;
 
-	// Token: 0x04000166 RID: 358
-	public Transform bully;
-
-	// Token: 0x04000167 RID: 359
-	public bool bullySeen;
-
-	// Token: 0x04000168 RID: 360
 	public PlayerScript playerScript;
 
 	// Token: 0x0400016A RID: 362

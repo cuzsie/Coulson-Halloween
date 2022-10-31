@@ -18,12 +18,15 @@ public class PlayerScript : MonoBehaviour
 	// Token: 0x060000E2 RID: 226 RVA: 0x00007B04 File Offset: 0x00005F04
 	private void Update()
 	{
-		if (isActive)
+		if (!gc.dmanager.InDialogue && !gc.gamePaused)
 		{
-			this.MouseMove();
+			MouseMove();
+			PlayerMove();
+			StaminaCheck();
 		}
-		this.StaminaCheck();
-		this.GuiltCheck();
+		
+		GuiltCheck();
+
 		if (this.jumpRope & (base.transform.position - this.frozenPosition).magnitude >= 1f) // If the player moves, deactivate the jumprope minigame
 		{
 			this.DeactivateJumpRope();
@@ -39,19 +42,10 @@ public class PlayerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E3 RID: 227 RVA: 0x00007BBD File Offset: 0x00005FBD
-	private void FixedUpdate()
-	{
-		if (isActive)
-		{
-			this.PlayerMove();
-		}
-	}
-
 	// Token: 0x060000E4 RID: 228 RVA: 0x00007BC5 File Offset: 0x00005FC5
 	private void MouseMove()
 	{
-		this.playerRotation.eulerAngles = this.playerRotation.eulerAngles + new Vector3(0f, Input.GetAxis("Mouse X") * this.mouseSensitivity, 0f);
+		this.playerRotation.eulerAngles = this.playerRotation.eulerAngles + new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X") * this.mouseSensitivity, 0f);
 	}
 
 	// Token: 0x060000E5 RID: 229 RVA: 0x00007C00 File Offset: 0x00006000

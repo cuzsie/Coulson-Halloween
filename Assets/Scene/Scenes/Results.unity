@@ -619,7 +619,7 @@ PrefabInstance:
     - target: {fileID: 4009891209819525761, guid: 620130ebf4708654bbe70bcaea9f0d7c,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.39215687
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 620130ebf4708654bbe70bcaea9f0d7c, type: 3}
@@ -680,9 +680,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb71c2d0b6e225804d5e36b90f5888d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 20a0122f5062ffe43b38265fb27a1cdc, type: 3}
     m_FontSize: 50
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -909,9 +909,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb71c2d0b6e225804d5e36b90f5888d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 20a0122f5062ffe43b38265fb27a1cdc, type: 3}
     m_FontSize: 40
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
     m_MaxSize: 40
@@ -987,9 +987,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb71c2d0b6e225804d5e36b90f5888d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 20a0122f5062ffe43b38265fb27a1cdc, type: 3}
     m_FontSize: 20
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40

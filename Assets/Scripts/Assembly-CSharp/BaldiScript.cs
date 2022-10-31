@@ -17,14 +17,8 @@ public class BaldiScript : MonoBehaviour
 	// Token: 0x060000B9 RID: 185 RVA: 0x000067AC File Offset: 0x00004BAC
 	private void Update()
 	{
-		if (this.timeToMove > 0f) //If timeToMove is greater then 0, decrease it
-		{
-			this.timeToMove -= 1f * Time.deltaTime;
-		}
-		else
-		{
-			this.Move(); //Start moving
-		}
+		Move();
+		
 		if (this.coolDown > 0f) //If coolDown is greater then 0, decrease it
 		{
 			this.coolDown -= 1f * Time.deltaTime;
@@ -112,8 +106,6 @@ public class BaldiScript : MonoBehaviour
 		this.moveFrames = 10f;
 		this.timeToMove = this.baldiWait - this.baldiTempAnger; 
 		this.previous = base.transform.position; // Set previous to Baldi's current location
-		this.baldiAudio.PlayOneShot(this.slap); //Play the slap sound
-		this.baldiAnimator.SetTrigger("slap"); // Play the slap animation
 	}
 
 	// Token: 0x060000BE RID: 190 RVA: 0x00006AAC File Offset: 0x00004EAC

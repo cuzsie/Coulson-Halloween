@@ -497,7 +497,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb71c2d0b6e225804d5e36b90f5888d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 20a0122f5062ffe43b38265fb27a1cdc, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -511,11 +511,11 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Hello!
 
-    Welcome to Coulsons Halloween!
+    Thank''s for downloading the Coulson Halloween 2022 update!
 
-    This is a mod for BALDIS
-    BASICS, created to show off some of the new features in the Coulson FULL GAME!
-    (And also to get SPOOKY!)
+    This
+    update was meant to improve a few aspects of the original Coulson Halloween,
+    and to celebrate everyone''s favorite spooky holiday!
 
 
     Any Key to Continue'
@@ -596,7 +596,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: bb71c2d0b6e225804d5e36b90f5888d4, type: 3}
+    m_Font: {fileID: 12800000, guid: 20a0122f5062ffe43b38265fb27a1cdc, type: 3}
     m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The Coulson Full Game will be released soon at cuzsiedev.itch.io!
+  m_Text: 'The Coulson Full Game will be released soon at cuzsiegames.itch.io!
 
     Keep
     watch if you enjoy this mod!
@@ -616,11 +616,11 @@ MonoBehaviour:
 
     Hope you enjoy!
 
-    - CuzsieDev
+    - Cuzsie
 
 
-    Any
-    Key to Continue'
+    Any Key
+    to Continue'
 --- !u!222 &90565824
 CanvasRenderer:
   m_ObjectHideFlags: 0

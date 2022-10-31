@@ -11,9 +11,16 @@ public class GameControllerScript : MonoBehaviour
 	public Animator centerNotif;
 	public Color sussyColor;
 	public GameObject theLight;
+	public AudioClip spoopSong;
+	public AudioClip explaining;
+	private Color scaryColor;
+	public DialogueManager dmanager;
 	
 	private void Start()
 	{
+		scaryColor = RenderSettings.ambientLight;
+		RenderSettings.ambientLight = Color.white;
+
 		this.audioDevice = base.GetComponent<AudioSource>(); 
 		this.mode = PlayerPrefs.GetString("CurrentMode"); 
 		if (PlayerPrefs.GetFloat("MouseSensitivity") == 0f)
@@ -24,6 +31,7 @@ public class GameControllerScript : MonoBehaviour
 		{
 			this.baldiScrpt.endless = true; 
 		}
+		schoolMusic.clip = explaining;
 		this.schoolMusic.Play();
 		this.LockMouse();
 		this.UpdateNotebookCount();
@@ -31,9 +39,8 @@ public class GameControllerScript : MonoBehaviour
 		this.gameOverDelay = 0.5f;
 		if (mode == "afterdark")
 		{
-			RenderSettings.ambientLight = sussyColor;
+			scaryColor = sussyColor;
 			theLight.SetActive(true);
-			objectiveText.color = Color.white; // you can see now :)
  		}
 	}
 
@@ -54,7 +61,7 @@ public class GameControllerScript : MonoBehaviour
 		
 		if (!this.learningActive)
 		{
-			if (Input.GetButtonDown("Pause"))
+			if (Input.GetButtonDown("Pause") && !dmanager.InDialogue)
 			{
 				if (!this.gamePaused)
 				{
@@ -205,7 +212,7 @@ public class GameControllerScript : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 		this.gamePaused = false;
-		cursorController.UnlockCursor();
+		cursorController.LockCursor();
 		this.pauseText.SetActive(false);
 	}
 
@@ -214,6 +221,12 @@ public class GameControllerScript : MonoBehaviour
 		this.spoopMode = true;
 		player.isActive = true;
 		Started = true;
+
+		schoolMusic.Stop();
+		schoolMusic.clip = spoopSong;
+		schoolMusic.Play();
+
+		RenderSettings.ambientLight = scaryColor;
 		
 		this.baldiTutor.SetActive(false); //Turns off Baldi(The one that you see at the start of the game)
 		this.baldi.SetActive(true); //Turns on Baldi
@@ -444,8 +457,8 @@ public class GameControllerScript : MonoBehaviour
 			}
 			else if (this.item[this.itemSelected] == 10) // Speed boost
 			{
-				player.walkSpeed = 20;
-				player.runSpeed = 25;
+				player.walkSpeed = 30;
+				player.runSpeed = 35;
 				this.ResetItem();
 				StartCoroutine(speedBoost());
 			}
@@ -506,8 +519,8 @@ public class GameControllerScript : MonoBehaviour
 	IEnumerator speedBoost()
 	{
 		yield return new WaitForSeconds(10);
-		player.walkSpeed = 10;
-		player.runSpeed = 16;
+		player.walkSpeed = 20;
+		player.runSpeed = 25;
 	}
 
 	// Token: 0x040000AB RID: 171
@@ -617,15 +630,15 @@ public class GameControllerScript : MonoBehaviour
 	private string[] itemNames = new string[]
 	{
 		"Nothing",
-		"Energy flavored Zesty Bar",
-		"Yellow Door Lock",
-		"Principal's Keys",
-		"BSODA",
-		"Quarter",
-		"Baldi Anti Hearing and Disorienting Tape",
-		"Alarm Clock",
-		"WD-NoSquee (Door Type)",
-		"Safety Scissors",
+		"Carrot",
+		"Lock",
+		"Emilee's Keys",
+		"Seltzer",
+		"Coulson Coin",
+		"Dog Whistle",
+		"Bird",
+		"No Sound Door Spray",
+		"Clippers",
 		"Speed Boost"
 	};
 
@@ -673,7 +686,7 @@ public class GameControllerScript : MonoBehaviour
 	private int[] itemSelectOffset;
 
 	// Token: 0x040000DE RID: 222
-	private bool gamePaused;
+	public bool gamePaused;
 
 	// Token: 0x040000DF RID: 223
 	private bool learningActive;

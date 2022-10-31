@@ -13,15 +13,9 @@ public class GameOverScript : MonoBehaviour
 		this.audioDevice = base.GetComponent<AudioSource>();
 		this.delay = 5f;
 		this.chance = UnityEngine.Random.Range(1f, 99f);
-		if (this.chance < 98f)
-		{
-			int num = Mathf.RoundToInt(UnityEngine.Random.Range(0f, 4f));
-			this.image.sprite = this.images[num];
-		}
-		else
-		{
-			this.image.sprite = this.rare;
-		}
+
+		int num = Mathf.RoundToInt(UnityEngine.Random.Range(0f, 4f));
+		this.image.sprite = this.images[num];
 	}
 
 	// Token: 0x0600009A RID: 154 RVA: 0x00005510 File Offset: 0x00003910
@@ -33,19 +27,6 @@ public class GameOverScript : MonoBehaviour
 			if (this.chance < 98f)
 			{
 				SceneManager.LoadScene("MainMenu");
-			}
-			else
-			{
-				this.image.transform.localScale = new Vector3(5f, 5f, 1f);
-				this.image.color = Color.red;
-				if (!this.audioDevice.isPlaying)
-				{
-					this.audioDevice.Play();
-				}
-				if (this.delay <= -5f)
-				{
-					Application.Quit();
-				}
 			}
 		}
 	}

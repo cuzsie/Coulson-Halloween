@@ -24,11 +24,6 @@ public class PlaytimeScript : MonoBehaviour
 		{
 			this.playCool -= Time.deltaTime;
 		}
-		else if (this.animator.GetBool("disappointed"))
-		{
-			this.playCool = 0f;
-			this.animator.SetBool("disappointed", false);
-		}
 	}
 
 	// Token: 0x06000044 RID: 68 RVA: 0x0000338C File Offset: 0x0000178C
@@ -86,7 +81,6 @@ public class PlaytimeScript : MonoBehaviour
 	// Token: 0x06000046 RID: 70 RVA: 0x000035B4 File Offset: 0x000019B4
 	private void TargetPlayer()
 	{
-		this.animator.SetBool("disappointed", false); //No longer be sad
 		this.agent.SetDestination(this.player.position); // Go after the player
 		this.agent.speed = 20f; // Speed up
 		this.coolDown = 0.2f;
@@ -100,7 +94,6 @@ public class PlaytimeScript : MonoBehaviour
 	// Token: 0x06000047 RID: 71 RVA: 0x00003627 File Offset: 0x00001A27
 	public void Disappoint()
 	{
-		this.animator.SetBool("disappointed", true); //Get sad
 		this.audioDevice.Stop();
 		this.audioDevice.PlayOneShot(this.aud_Sad);
 	}
@@ -116,9 +109,6 @@ public class PlaytimeScript : MonoBehaviour
 
 	// Token: 0x04000053 RID: 83
 	public int audVal;
-
-	// Token: 0x04000054 RID: 84
-	public Animator animator;
 
 	// Token: 0x04000055 RID: 85
 	public Transform player;
